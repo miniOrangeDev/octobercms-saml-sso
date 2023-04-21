@@ -1,0 +1,10 @@
+name: LicenseController
+form: $/miniorange/samlsp/models/samlsettings/fields.yaml
+modelClass: Miniorange\Samlsp\Models\SAMLsettings
+defaultRedirect: miniorange/samlsp/licensecontroller
+create:
+    redirect: 'miniorange/samlsp/licensecontroller/update/:id'
+    redirectClose: miniorange/samlsp/licensecontroller
+update:
+    redirect: miniorange/samlsp/licensecontroller
+    redirectClose: miniorange/samlsp/licensecontroller

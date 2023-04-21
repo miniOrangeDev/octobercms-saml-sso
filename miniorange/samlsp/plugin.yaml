@@ -1,0 +1,29 @@
+plugin:
+    name: 'miniorange.samlsp::lang.plugin.name'
+    description: 'miniorange.samlsp::lang.plugin.description'
+    author: 'miniOrange Security Software'
+    icon: oc-icon-sign-in
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'Single Sign On'
+        url: miniorange/samlsp/samlcontroller/update/1
+        icon: icon-user
+        iconSvg: plugins/miniorange/samlsp/resources/images/miniorange.png
+        sideMenu:
+            side-menu-item3:
+                label: 'Plugin Settings'
+                url: miniorange/samlsp/samlcontroller/update/1
+                icon: icon-sliders
+            side-menu-item:
+                label: Upgrade
+                url: miniorange/samlsp/upgradecontroller/update/1
+                icon: icon-arrow-circle-up
+            side-menu-item2:
+                label: Support
+                url: miniorange/samlsp/supportcontroller/update/1
+                icon: icon-support
+            side-menu-item4:
+                label: Account
+                url: miniorange/samlsp/accountcontroller/update/1
+                icon: icon-credit-card

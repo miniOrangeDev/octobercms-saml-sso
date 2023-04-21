@@ -1,0 +1,68 @@
+<?php use Backend as Backend;
+$formaction = Backend::url('miniorange/samlsp/licensecontroller/verify-license'); ?>
+<form name="f" method="post" style="width:50%"action="<?php echo $formaction; ?>">
+    <?= Form::token(); ?>
+    <div class="form-group">
+        <label for="saml_license_key"><b><p><font color="#FF0000">*</font>Enter
+            your license key to activate the plugin:</b></p></label> <input
+            class="form-control" required type="text"
+            style="margin-left: 40px; width: 300px;" name="saml_license_key"
+            id="saml_license_key"
+            placeholder="Enter your license key to activate the plugin" />
+    </div>
+
+    <ol>
+        <li>License key you have entered here is associated with this site
+            instance. In future, if you are re-installing the plugin or your
+            site for any reason, you should logout of your miniOrange account
+            from the plugin and then delete the plugin. So that you can
+            reuse the same license key.</li>
+        <br>
+        <li><b>This is not a developer's license.</b> Making any kind of
+            change to the plugin's code will delete all your configuration
+            and make the plugin unusable.</li>
+        <br>
+        <div class="animated-checkbox">
+            <label> <input type="checkbox" name="license_conditions"
+                           id="license_conditions" required> <span class="label-text"><strong>I
+							have read the above two conditions and I want to activate the
+							plugin.</strong></span>
+            </label>
+        </div>
+    </ol>
+    <input type="submit"
+           name="submit"
+           value="Activate License"
+           class="btn btn-primary" />
+    <a href="<?php echo Backend::url('miniorange\samlsp\licensecontroller\remove-customer'); ?>">Change Account</a>
+
+</form>
+<style>
+    .support-control {
+
+    float: right;
+    width: 37em;
+    margin-top: -20em;
+
+}
+    
+    label{
+        font-weight: bold;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile">
+            <div class="row">
+                <div class="col-lg-12 support-control">
+                    <?php
+                        
+                             { echo $this->makePartial ('support-form', ['showHeader' => true]); }
+                    
+
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

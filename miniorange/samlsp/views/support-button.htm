@@ -1,0 +1,34 @@
+<?php ?>
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+	.support_tab {
+		float: right;
+color: white !important;
+background:orange;
+padding: 5px;
+border-radius: 2px;
+display: inline-block;
+border: none;
+transition: all 0.4s ease 0s;
+}
+.support_tab:hover {
+background: #e65c00;
+letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
+text-decoration: none;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+	<div class="button_cont"><a class="support_tab"id="support-tab-partial" href="<?php echo Backend::url('miniorange/samlsp/supportcontroller/update/1');?>"  >Support</a>
+	</div>
+	
+</body>
+</html>

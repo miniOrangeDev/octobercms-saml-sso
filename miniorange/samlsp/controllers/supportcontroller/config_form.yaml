@@ -1,0 +1,12 @@
+name: SupportController
+modelClass: Miniorange\Samlsp\Models\samlsettings
+form: $/miniorange/samlsp/models/samlsettings/fields.yaml
+defaultRedirect: miniorange/samlsp/supportcontroller
+create:
+    redirect: 'miniorange/samlsp/supportcontroller/update/:id'
+    redirectClose: miniorange/samlsp/supportcontroller
+update:
+    title: Support
+    redirect: miniorange/samlsp/supportcontroller
+    redirectClose: miniorange/samlsp/supportcontroller
+preview: {  }

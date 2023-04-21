@@ -1,0 +1,14 @@
+input[disabled="disabled"]::placeholder {
+    color:orangered;
+}
+input[disabled="disabled"] + label::after{
+    content: "Available in Premium";
+    color:orangered;
+    display:inline-block;
+}
+
+#att-map-tab-partial{
+    border: #ff450087 solid 3px;
+    padding:6px;
+    background-color: khaki;
+}

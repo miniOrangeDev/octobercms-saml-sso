@@ -1,0 +1,62 @@
+<?php
+use System\Console\PluginRefresh as PluginRefresh;
+use Symfony\Component\Console\Input\InputArgument;
+use Artisan as Artisan;
+use URL as URL;
+Block::put('breadcrumb');?>
+    <ul>
+        <li><a href="<?= Backend::url('miniorange/samlsp/samlcontroller') ?>"></a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <?= Form::open(['class' => 'layout']) ?>
+
+        <div class="layout-row">
+            <?= $this->formRender() ?>
+        </div>
+
+        <div class="form-buttons">
+                <button
+                    type="submit"
+                    data-request="onSave"
+                    data-request-data="redirect:0"
+                    data-hotkey="ctrl+s, cmd+s"
+                    data-load-indicator="<?= e(trans('backend::lang.form.saving')) ?>"
+                    class="btn btn-primary">
+                    <?= e(trans('backend::lang.form.save')) ?>
+                </button>
+                </button>
+                <button
+                    type="button"
+                    class="oc-icon-trash-o btn-icon danger pull-right"
+                    data-request="onDelete"
+                    data-load-indicator="<?= e(trans('backend::lang.form.deleting')) ?>"
+                    data-request-confirm="<?= e(trans('backend::lang.form.confirm_delete')) ?>">
+                </button>
+                <button
+                        type="button"
+                        class="btn btn-default"
+                        onclick="testConfig()">Test Configuration
+                </button>
+            </div>
+    <?= Form::close() ?>
+
+<?php else:
+if(strpos($this->fatalError,"42S02") != FALSE) {
+Artisan::call('plugin:refresh', array('name' => 'Miniorange.Samlsp'));
+echo '<script type="text/javascript">
+    window.location.replace("'.Backend::url("miniorange/samlsp/samlcontroller/update/1").'");
+</script>';
+}?>
+    <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+    <p><a href="<?= Backend::url('miniorange/samlsp/samlcontroller') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')) ?></a></p>
+<?php endif ?>
+<script type="text/javascript">
+    function testConfig(){
+        var path = <?php echo json_encode(URL::to('')."/saml_redirect?RelayState=testconfig"); ?>;
+        window.open(path);
+    }
+</script>

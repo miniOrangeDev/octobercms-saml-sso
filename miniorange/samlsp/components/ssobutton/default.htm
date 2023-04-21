@@ -1,0 +1,13 @@
+<?php
+use URL as URL;
+use October\Rain\Auth\AuthException as AuthException;
+use Illuminate\Support\Facades\Session as Session;
+use October\Rain\Support\Facades\Flash as Flash;
+
+?>
+<form style="display:inline-block"
+    data-request="{{ __SELF__ }}::onClick"
+    data-request-flash>
+    <button class="btn btn-default" id="sso_comp" type="submit" >Single Sign On</button>
+</form>
+

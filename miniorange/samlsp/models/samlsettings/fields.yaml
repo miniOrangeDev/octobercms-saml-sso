@@ -1,0 +1,128 @@
+fields:
+    partial1:
+        span: full
+        path: $/miniorange/samlsp/views/premium-tab.htm
+        type: partial
+tabs:
+    fields:
+        idp_name:
+            label: 'IDP Name'
+            span: auto
+            placeholder: 'eg. miniOrange'
+            disabled: 0
+            required: 0
+            type: text
+            commentAbove: 'Name of IDP'
+            tab: 'IdP Settings'
+        idp_entity_id:
+            label: 'IDP Entity ID'
+            span: auto
+            placeholder: 'eg. https://login.xecurify.com/moas'
+            default: ''
+            type: text
+            commentAbove: 'Issuer ID provided by IDP'
+            tab: 'IdP Settings'
+        idp_login_url:
+            label: 'SAML Login URL'
+            span: auto
+            placeholder: 'eg. https://login.xecurify.com/moas/idp/samlsso'
+            type: text
+            commentAbove: 'SSO URL provided by IDP'
+            tab: 'IdP Settings'
+        idp_logout_url:
+            label: 'Single Logout URL'
+            span: auto
+            placeholder: 'Available in Premium'
+            disabled: 1
+            type: text
+            commentAbove: 'Single Logout URL provided by IdP'
+            tab: 'IdP Settings'
+        saml_login_binding_type:
+            label: 'SAML Login Binding Type'
+            options:
+                HttpRedirect: HttpRedirect
+                HttpPost: HttpPost
+            span: auto
+            disabled: 1
+            readOnly: 0
+            required: 0
+            type: radio
+            commentAbove: 'SAML Request Send Method'
+            tab: 'IdP Settings'
+        idp_certificate:
+            label: 'SAML x509 Certificate'
+            size: large
+            span: auto
+            placeholder: '-----BEGIN CERTIFICATE----- XXXXX -----END CERTIFICATE-----'
+            type: textarea
+            comment: 'x509 Certificate provided by IDP'
+            tab: 'IdP Settings'
+        force_authn:
+            label: 'Force Authentication'
+            span: auto
+            comment: 'Force Authentication at IdP every time'
+            disabled: 1
+            type: checkbox
+            tab: 'IdP Settings'
+        sp_entity_id:
+            label: 'SP Entity ID'
+            span: auto
+            disabled: 1
+            type: text
+            commentAbove: 'Audience URI to be provided to IDP'
+            tab: 'SP Settings'
+        sp_acs_url:
+            label: 'ACS URL'
+            span: auto
+            disabled: 1
+            type: text
+            commentAbove: 'ACS URL to be provided to IDP'
+            tab: 'SP Settings'
+        sp_logout_url:
+            label: 'Single Logout URL'
+            span: auto
+            placeholder: 'Available in Premium'
+            disabled: 1
+            type: text
+            commentAbove: 'Single Logout Response URL to be provided to IdP'
+            tab: 'SP Settings'
+        partial2:
+            span: left
+            path: $/miniorange/samlsp/views/cert-download-button.htm
+            type: partial
+            tab: 'SP Settings'
+        auto_redirect:
+            label: Auto-Redirect
+            span: left
+            disabled: 1
+            type: checkbox
+            comment: 'Auto-Redirect Users to IdP'
+            tab: 'SP Settings'
+        map_username:
+            label: Username
+            span: auto
+            default: NameID
+            disabled: 1
+            type: text
+            tab: 'Attribute Mapping'
+        map_email:
+            label: Email
+            span: auto
+            default: NameID
+            disabled: 1
+            type: text
+            tab: 'Attribute Mapping'
+        map_name:
+            label: Name
+            span: auto
+            placeholder: 'Available in Premium'
+            disabled: 1
+            type: text
+            tab: 'Attribute Mapping'
+        map_surname:
+            label: Surname
+            span: auto
+            placeholder: 'Available in Premium'
+            disabled: 1
+            type: text
+            tab: 'Attribute Mapping'

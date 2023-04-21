@@ -1,0 +1,31 @@
+<?php
+use View as View;
+use Miniorange\Samlsp\Helper\CustomerDetails as CD;
+Block::put('breadcrumb'); ?>
+    <ul>
+         <li><a href="<?= Backend::url('miniorange/samlsp/samlcontroller') ?>"></a></li>
+         <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut(); ?>
+
+<?php if (!$this->fatalError): { ?>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile">
+            <div class="row">
+                <div id="target" class="col-lg-10">
+                    <?= $this->makePartial('support-form', ['showHeader' => true]); ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php } else: ?>
+    <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+    <p><a href="<?= Backend::url('miniorange/samlsp/supportcontroller') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')) ?></a></p>
+<?php endif ?>

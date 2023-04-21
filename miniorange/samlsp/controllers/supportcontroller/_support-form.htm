@@ -1,0 +1,75 @@
+<?php use Miniorange\Samlsp\Helper\CustomerDetails as CD;
+$email = CD::get_option('cust_email');
+$cust_key = CD::get_option('cust_key'); ?>
+
+<style>
+    .form-group{
+    padding-bottom:2px;
+}
+    label{
+        margin-left:7px;
+    }
+</style>
+<form method="post" action="<?php echo Backend::url('miniorange/samlsp/supportcontroller/on-send-mail');?>">
+  <?= Form::token(); ?>
+    <p>
+        <b>Need help setting up or an upgrade ? Just send us a query and we will
+            get back to you soon.</b>
+    </p>
+    <input type="hidden" name="option"
+           value="mo_saml_contact_us_query_option" />
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="email" id="email"
+               name="email" placeholder="Enter your email"
+               required
+               value="<?php echo $email; ?>">
+    </div>
+
+
+<div class="form-group">
+        <label for="first_name"> Name</label>
+        <input class="form-control" type="text" id="first_name"
+               name="first_name" placeholder="Enter your name"
+               required
+               >
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <input class="form-control" type="tel" id="phone"
+               name="phone"
+               pattern="[\+]\d{11,14}|[\+]\d{1,4}[\s]\d{9,10}"
+               placeholder="We call only if you do. 	( eg.+1 9876543210, +91 1234567890 )">
+    </div>
+    <div class="form-group">
+        <label for="query">Query</label>
+        <textarea class="form-control" name="query" id="query"
+                  required placeholder="Enter your query here"
+                  onkeypress="mo_saml_valid_query(this)"
+                  onkeyup="mo_saml_valid_query(this)"
+                  onblur="mo_saml_valid_query(this)"></textarea>
+    </div>
+    <div class="tile-footer">
+        <button
+                class="btn btn-primary"
+                type="submit"
+                name="submit"
+                >Submit</button>
+    </div>
+</form>
+<script>
+    function mo_saml_valid_query(f) {
+        !(/^[a-zA-Z?,.\(\)\/@ 0-9]*$/).test(f.value) ? f.value = f.value.replace(
+            /[^a-zA-Z?,.\(\)\/@ 0-9]/, '') : null;
+    }
+</script>

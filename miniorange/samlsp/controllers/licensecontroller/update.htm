@@ -1,0 +1,50 @@
+<?php Block::put('breadcrumb');
+use Miniorange\Samlsp\Helper\CustomerDetails as CD;?>
+    <ul>
+        <li><a href="<?= Backend::url('miniorange/samlsp/licensecontroller') ?>"></a></li>
+        <li>Account</li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+<style>
+    .form-control {
+        margin-bottom: 4px;
+        margin-top: 1px;
+        width: 384px;
+    }
+    label{
+        font-weight: bold;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile">
+            <div class="row">
+                <div class="col-lg-12">
+                    <?php
+                        if (CD::get_option('cust_reg_status') == 'verified')
+                            { echo $this->makePartial('cust-details', ['showHeader' => true]); }
+                        if (CD::get_option('cust_reg_status') == null)
+                            { echo $this->makePartial ('cust-login-form', ['showHeader' => true]); }
+                        if(CD::get_option('cust_reg_status') == 'logged')
+                        {
+                             { echo $this->makePartial ('license-form', ['showHeader' => true]); }
+                        }
+
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <?= Form::close() ?>
+
+
+
+
+<?php else: ?>
+    <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+    <p><a href="<?= Backend::url('miniorange/samlsp/licensecontroller') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')) ?></a></p>
+<?php endif ?>

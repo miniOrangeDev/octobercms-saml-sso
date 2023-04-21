@@ -1,0 +1,36 @@
+<?php use Miniorange\Samlsp\Helper\CustomerDetails as CD;
+use Backend as Backend;
+$formaction = Backend::url('miniorange\samlsp\accountcontroller\remove-customer');?>
+<div class="mo_saml_table_layout">
+
+
+    <h2>Thank you for choosing miniOrange.</h2>
+
+    <table border="1"
+           style="background-color: #FFFFFF; border: 1px solid #CCCCCC; border-collapse: collapse; padding: 0px 0px 0px 10px; margin: 2px; width: 85%">
+        <tr>
+            <td style="width: 45%; padding: 10px;">miniOrange Account Email</td>
+            <td style="width: 55%; padding: 10px;"><?php echo CD::get_option( 'cust_email' ); ?></td>
+        </tr>
+        <tr>
+            <td style="width: 45%; padding: 10px;">Customer ID</td>
+            <td style="width: 55%; padding: 10px;"><?php echo CD::get_option( 'cust_key' ); ?></td>
+        </tr>
+    </table>
+    <br/> <br/>
+
+    <table>
+        <tr>
+            <td>
+
+                <form name="f1" method="post" action="<?php echo $formaction; ?>" id="mo_saml_goto_login_form"
+                      style="margin-block-end: auto;">
+                    <?= Form::token(); ?>
+                    <input type="hidden" value="change_miniorange" name="option"/> <input
+                        type="submit" value="Change miniOrange Account" class="btn btn-primary"/>
+                    <input type="button" value="Upgrade to Premium" class="btn btn-primary" onclick="window.open('<?php echo Backend::url('miniorange/samlsp/supportcontroller/update/1');?>')"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,63 @@
+<?php use Backend as Backend;
+$formaction = Backend::url('miniorange/samlsp/licensecontroller/cust-login'); ?>
+<form name="f" method="post" action="<?php echo $formaction; ?>">
+    <?= Form::token() ?>
+    <input type="hidden" name="option" value="mo_saml_verify_customer"/>
+    <div class="mo_saml_table_layout">
+        <div id="toggle1" class="panel_toggle">
+            <h3>Login with miniOrange</h3>
+        </div>
+        <div id="panel1">
+            <p><b>Please enter your miniOrange email
+                and password.<br/> <a target="_blank"
+                                      href="https://login.xecurify.com/moas/idp/resetpassword">Click
+                    here if you forgot your password?</a></b></p>
+           <!--  <div class="col-lg-8" style="width:fit-content"> -->
+                  <div class="col-lg-8" style="width:50%">
+                    <label color="#FF0000">Email:</label>
+                        <input class="form-control" type="email" name="email"
+                                   required placeholder="person@example.com"
+                                   value="
+                            "/>
+                        <label color="#FF0000">Password:</label>
+                        <input class="form-control" required type="password"
+                                   name="password" placeholder="Enter your password"
+                                   minlength="6" pattern="^[(\w)*(!@#$.%^&*-_)*]+$"
+                                   title="Minimum 6 characters should be present. Maximum 15 characters should be present. Only following symbols (!@#.$%^&*) should be present."/>
+
+                            <input style="float:center;margin:7px;" type="submit" name="submit" value="Login"
+                                   class="btn btn-primary"/>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    .support-control {
+
+    float: right;
+    width: 37em;
+    margin-top: -19em;
+
+}
+    
+    label{
+        font-weight: bold;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile">
+            <div class="row">
+                <div class="col-lg-12 support-control">
+                    <?php
+                        
+                             { echo $this->makePartial ('support-form', ['showHeader' => true]); }
+                    
+
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

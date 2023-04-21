@@ -1,0 +1,57 @@
+<?php use Flash as Flash;
+use Backend as Backend;
+$path = Backend::url('miniorange/samlsp/accountcontroller/register-submit');
+?>
+<form name="f" method="post" action="<?php echo $path; ?>">
+    <?= Form::token() ?>
+    <input type="hidden" name="option" value="mo_saml_register_customer"/>
+    <div class="mo_saml_table_layout" id="registration_div">
+        <h4>Register with miniOrange</h4>
+        <h5>Why should I register?</h5>
+
+        <div style="background: aliceblue; padding: 10px 10px 10px 10px; border-radius: 10px;">
+            You will need a miniOrange account to <b>upgrade to the premium</b> version. You can create one for <b>free</b> using the form below. We can help you with step by step instructions to configure the plugin with your IdP. We support all known IdPs - ADFS, Okta, Salesforce, Shibboleth,
+            SimpleSAMLphp, OpenAM, Centrify, Ping, RSA, IBM, Oracle, OneLogin, Bitium, WSO2 etc.
+
+        </div>
+        <p id="att-map-tab-partial">If you already have a miniOrange account, <b>submit your existing credentials</b>. We will retrieve your existing account for you.</p>
+        <br/>
+        <div class="col-lg-8">
+            <table class="mo_saml_settings_table">
+                <tr>
+                    <td><b><font color="#FF0000">*</font>Email:</b></td>
+                    <td><input class="form-control" type="email" name="email"
+                               required placeholder="person@example.com"
+                               value=""
+                               style="width: 290px;"/>
+                    </td>
+                </tr>
+                <tr> </tr>
+                <tr>
+                    <td><b><font color="#FF0000">*</font>Password:</b></td>
+                    <td><input class="form-control" required type="password" style="width: 290px;"
+                               name="password" placeholder="Choose your password (Min. length 6)"
+                               minlength="6" pattern="^[(\w)*(!@#$.%^&*-_)*]+$"
+                               title="Minimum 6 characters should be present. Maximum 15 characters should be present. Only following symbols (!@#.$%^&*) should be present."/></td>
+                </tr>
+                <tr>
+                    <td><b><font color="#FF0000">*</font>Confirm Password:</b></td>
+                    <td><input class="form-control" required type="password" style="width: 290px;"
+                               name="confirmPassword" placeholder="Confirm your password"
+                               minlength="6" pattern="^[(\w)*(!@#$.%^&*-_)*]+$"
+                               title="Minimum 6 characters should be present. Maximum 15 characters should be present. Only following symbols (!@#.$%^&*) should be present."/></td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td><br><input
+                            type="submit"
+                            name="register"
+                            value="Submit"
+                            id="register_action"
+                            class="btn btn-primary"
+                            style="float:right"/>
+                    </td>
+                </tr>
+            </table></div>
+    </div>
+</form>

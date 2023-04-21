@@ -1,0 +1,13 @@
+name: 'SAML Settings'
+modelClass: Miniorange\Samlsp\Models\samlsettings
+form: $/miniorange/samlsp/models/samlsettings/fields.yaml
+defaultRedirect: miniorange/samlsp/samlcontroller
+create:
+    title: 'SAML Settings '
+    redirect: 'miniorange/samlsp/samlcontroller/update/:id'
+    redirectClose: miniorange/samlsp/samlcontroller
+update:
+    title: 'SAML Settings '
+    redirect: miniorange/samlsp/samlcontroller
+preview:
+    title: 'SAML Settings '

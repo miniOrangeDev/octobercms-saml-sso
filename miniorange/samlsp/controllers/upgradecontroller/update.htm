@@ -1,0 +1,58 @@
+<?php Block::put('breadcrumb');
+use Backend as Backend;
+?>
+    <ul>
+        <li><a href="<?= Backend::url('miniorange/samlsp/licensecontroller') ?>"></a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+<div class="row">
+                    <div id="pricing_container" style="text-align:center; padding-bottom:30px;" >
+                        <h4><b>Licensing Plans:</b></h4>
+                            <div class="thumbnail" style="margin-right:10px;">
+                                <div class="mo-tab" style="margin-left:50px">
+                                    <div class="tab-title">Free</div>
+                                    <hr>
+                                    <div class="tab-price">$0</div>
+                                    <hr>
+                                    <div class="tab-features">
+                                        <p>Unlimited Authentications</p>
+                                        <p>Automatic user registration for  10 Users</p>
+                                        <p>Frontend and Backend Support</p>
+                                        <p>SSO Button Component</p>
+                                        <p>Standard Attribute Mapping (Only NameID)</p>
+                                    </div>
+                                    <hr>
+                                    <h4>Basic Email Support</h4>
+                                </div>
+                            </div>
+                            <div class="thumbnail" style="margin-right:10px">
+                                <div class="mo-tab">
+                                    <div class="tab-title">Premium<br><a class="btn btn-large" id="upgrade_button" style="background-color:#f7934c;color:#fff" href="<?php echo Backend::url('miniorange/samlsp/accountcontroller/upgrade');?>">Contact for Upgrade</a></div>
+                                    <hr>
+                                    <div class="tab-price">$449</div>
+                                    <hr>
+                                    <div class="tab-features">
+                                        <p>Unlimited Authentications</p>
+                                        <p>Unlimited Automatic user registration</p>
+                                        <p>Frontend and Backend Support</p>
+                                        <p>SSO Button Component</p>
+                                        <p>Advanced Attribute Mapping</p>
+                                        <p>Configurable SAML request binding type</p>
+                                        <p>SAML Single Logout</p>
+                                        <p>Force Authentication and Auto-Redirect to IdP</p>
+                                        <p>Signed Response and Assertion</p>
+                                    </div>
+                                    <hr>
+                                    <h4>Premium Support</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<?php else: ?>
+    <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+    <p><a href="<?= Backend::url('miniorange/samlsp/licensecontroller') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')) ?></a></p>
+<?php endif ?>

@@ -1,0 +1,11 @@
+name: AccountController
+modelClass: Miniorange\Samlsp\Models\samlsettings
+form: $/miniorange/samlsp/models/samlsettings/fields.yaml
+defaultRedirect: miniorange/samlsp/accountcontroller
+create:
+    redirect: 'miniorange/samlsp/accountcontroller/update/:id'
+    redirectClose: miniorange/samlsp/accountcontroller
+update:
+    redirect: miniorange/samlsp/accountcontroller
+    redirectClose: miniorange/samlsp/accountcontroller
+preview: {  }
